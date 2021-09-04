@@ -6,7 +6,8 @@ def segment_image(image):
     blurred = gaussian(image, sigma=2)
 
     # binarize the image
-    binary = threshold_otsu(blurred)
+    threshold = threshold_otsu(blurred)
+    binary = blurred > threshold
     
     # label connected components
     result = label(binary)
